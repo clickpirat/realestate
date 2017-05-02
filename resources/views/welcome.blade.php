@@ -21,101 +21,101 @@
         <div class="container">
             <div class="banner-info">
                 <h1 style="margin-bottom: 15px">
-اهلا و سهلا بك في                     {{getSettings()}}
+                    اهلا و سهلا بك في                     {{getSettings()}}
                 </h1>
 
                 {!! Form::open([
                     'url' => 'search',
                     'method' => 'GET'
                 ]) !!}
-                    <div class="row">
-                        <div class="col-lg-6" style="float: right">
-                            {!! Form::text(
-                                'building_price_from',
-                                null,
-                                [
-                                    'placeholder' => 'سعر العقار من',
-                                    'style' => 'width: 100%; margin-bottom: 5px',
-                                    'class' => 'form-control'
-                                ]
-                            ) !!}
-                        </div>
-
-                        <div class="col-lg-6" style="float: right">
-                            {!! Form::text(
-                                'building_price_to',
-                                null,
-                                [
-                                    'placeholder' => 'سعر العقار الي',
-                                    'style' => 'width: 100%; margin-bottom: 5px',
-                                    'class' => 'form-control'
-                                ]
-                            ) !!}
-                        </div>
-
-                        <div class="col-lg-6" style="float: right">
-                            {!! Form::select(
-                                'rooms',
-                                room_numbers(),
-                                null,
-                                [
-                                    'placeholder' => 'عدد الغرف',
-                                    'style' => 'width: 100%; margin-bottom: 5px',
-                                    'class' => 'form-control'
-                                ]
-                            ) !!}
-                        </div>
-
-                        <div class="col-lg-6" style="float: right">
-                            {!! Form::select(
-                                'building_type',
-                                building_type(),
-                                null,
-                                [
-                                    'placeholder' => 'نوع العقار',
-                                    'style' => 'width: 100%; margin-bottom: 5px',
-                                    'class' => 'form-control'
-                                ]
-                            ) !!}
-                        </div>
+                <div class="row">
+                    <div class="col-lg-6" style="float: right">
+                        {!! Form::text(
+                            'building_price_from',
+                            null,
+                            [
+                                'placeholder' => 'سعر العقار من',
+                                'style' => 'width: 100%; margin-bottom: 5px',
+                                'class' => 'form-control'
+                            ]
+                        ) !!}
                     </div>
 
-                    <div class="row">
-                        <div class="col-lg-6" style="float: right">
-                            {!! Form::select(
-                                'building_rent',
-                                building_rent(),
-                                null,
-                                [
-                                    'placeholder' => 'نوع العملية',
-                                    'style' => 'width: 100%; margin-bottom: 5px',
-                                    'class' => 'form-control'
-                                ]
-                            ) !!}
-                        </div>
-
-                        <div class="col-lg-6" style="float: right">
-                            {!! Form::text(
-                                'building_area',
-                                null,
-                                [
-                                    'placeholder' => 'المساحة',
-                                    'style' => 'width: 100%',
-                                    'class' => 'form-control'
-                                ]
-                            ) !!}
-                        </div>
-
-                        <div class="col-lg-12">
-                            {!! Form::submit(
-                                'ابحث',
-                                [
-                                    'class' => 'btn btn-info',
-                                    'style' => 'width: 100%'
-                                ]
-                            ) !!}
-                        </div>
+                    <div class="col-lg-6" style="float: right">
+                        {!! Form::text(
+                            'building_price_to',
+                            null,
+                            [
+                                'placeholder' => 'سعر العقار الي',
+                                'style' => 'width: 100%; margin-bottom: 5px',
+                                'class' => 'form-control'
+                            ]
+                        ) !!}
                     </div>
+
+                    <div class="col-lg-6" style="float: right">
+                        {!! Form::select(
+                            'rooms',
+                            room_numbers(),
+                            null,
+                            [
+                                'placeholder' => 'عدد الغرف',
+                                'style' => 'width: 100%; margin-bottom: 5px',
+                                'class' => 'form-control'
+                            ]
+                        ) !!}
+                    </div>
+
+                    <div class="col-lg-6" style="float: right">
+                        {!! Form::select(
+                            'building_type',
+                            building_type(),
+                            null,
+                            [
+                                'placeholder' => 'نوع العقار',
+                                'style' => 'width: 100%; margin-bottom: 5px',
+                                'class' => 'form-control'
+                            ]
+                        ) !!}
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6" style="float: right">
+                        {!! Form::select(
+                            'building_rent',
+                            building_rent(),
+                            null,
+                            [
+                                'placeholder' => 'نوع العملية',
+                                'style' => 'width: 100%; margin-bottom: 5px',
+                                'class' => 'form-control'
+                            ]
+                        ) !!}
+                    </div>
+
+                    <div class="col-lg-6" style="float: right">
+                        {!! Form::text(
+                            'building_area',
+                            null,
+                            [
+                                'placeholder' => 'المساحة',
+                                'style' => 'width: 100%',
+                                'class' => 'form-control'
+                            ]
+                        ) !!}
+                    </div>
+
+                    <div class="col-lg-12">
+                        {!! Form::submit(
+                            'ابحث',
+                            [
+                                'class' => 'btn btn-info',
+                                'style' => 'width: 100%'
+                            ]
+                        ) !!}
+                    </div>
+                </div>
                 {!! Form::close() !!}
 
                 <a class="banner_btn" href="{{url('user/add/building')}}" style="padding: 15px 45px">اضف عقار</a> </div>
