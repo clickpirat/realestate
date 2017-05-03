@@ -38,8 +38,7 @@ return [
     |
     */
 
-    'debug' => env(TRUE),
-//    'debug' => env('APP_DEBUG', TRUE),
+    'debug' => env('APP_DEBUG', TRUE),
 
     /*
     |--------------------------------------------------------------------------
