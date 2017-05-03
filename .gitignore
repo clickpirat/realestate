@@ -9,5 +9,3 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 .env
-storage/app/*.php
-storage/framework/*/*.php
