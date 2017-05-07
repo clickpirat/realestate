@@ -16,12 +16,13 @@ class Building extends Model
         'building_type',
         'building_small_description',
         'building_meta',
-        'building_longitude',
-        'building_latitude',
         'building_large_description',
         'rooms',
         'status',
         'user_id',
         'image',
+        'month',
+        'year',
+
     ];
 }

@@ -4064,7 +4064,7 @@ Base.extend = function(_instance, _static) { // subclass
   };
 	delete Base._prototyping;
 	
-	// CRUDPolicy the wrapper for the constructor function
+	// create the wrapper for the constructor function
 	//var constructor = proto.constructor.valueOf(); //-dean
 	var constructor = proto.constructor;
 	var klass = proto.constructor = function() {
@@ -4231,7 +4231,7 @@ wysihtml5.browser = (function() {
      * Exclude browsers that are not capable of displaying and handling
      * contentEditable as desired:
      *    - iPhone, iPad (tested iOS 4.2.2) and Android (tested 2.2) refuse to make contentEditables focusable
-     *    - IE < 8 CRUDPolicy invalid markup and crash randomly from time to time
+     *    - IE < 8 create invalid markup and crash randomly from time to time
      *
      * @return {Boolean}
      */
@@ -4549,7 +4549,7 @@ wysihtml5.browser = (function() {
     },
 
     /**
-     * Chrome + Safari CRUDPolicy invalid nested markup after paste
+     * Chrome + Safari create invalid nested markup after paste
      *
      *  <p>
      *    foo
@@ -5162,7 +5162,7 @@ wysihtml5.dom.convertToList = (function() {
 
       // consider uneditable as an inline element
       if (isBlockElement && (!uneditableClass || !wysihtml5.dom.hasClass(childNode, uneditableClass))) {
-        // Append blockElement to current <li> if empty, otherwise CRUDPolicy a new one
+        // Append blockElement to current <li> if empty, otherwise create a new one
         currentListItem = currentListItem.firstChild ? _createListItem(doc, list) : currentListItem;
         currentListItem.appendChild(childNode);
         currentListItem = null;
@@ -5170,7 +5170,7 @@ wysihtml5.dom.convertToList = (function() {
       }
 
       if (isLineBreak) {
-        // Only CRUDPolicy a new list item in the next iteration when the current one has already content
+        // Only create a new list item in the next iteration when the current one has already content
         currentListItem = currentListItem.firstChild ? null : currentListItem;
         continue;
       }
@@ -10449,7 +10449,7 @@ wysihtml5.Commands = Base.extend(
   };
 })(wysihtml5);
 ;/**
- * document.execCommand("fontSize") will CRUDPolicy either inline styles (firefox, chrome) or use font tags
+ * document.execCommand("fontSize") will create either inline styles (firefox, chrome) or use font tags
  * which we don't want
  * Instead we set a css class
  */
@@ -10501,7 +10501,7 @@ wysihtml5.Commands = Base.extend(
   };
 })(wysihtml5);
 ;/**
- * document.execCommand("foreColor") will CRUDPolicy either inline styles (firefox, chrome) or use font tags
+ * document.execCommand("foreColor") will create either inline styles (firefox, chrome) or use font tags
  * which we don't want
  * Instead we set a css class
  */
@@ -10519,7 +10519,7 @@ wysihtml5.Commands = Base.extend(
   };
 })(wysihtml5);
 ;/**
- * document.execCommand("foreColor") will CRUDPolicy either inline styles (firefox, chrome) or use font tags
+ * document.execCommand("foreColor") will create either inline styles (firefox, chrome) or use font tags
  * which we don't want
  * Instead we set a css class
  */
@@ -12424,7 +12424,7 @@ wysihtml5.views.View = Base.extend(
         });
       }
 
-      // Under certain circumstances Chrome + Safari CRUDPolicy nested <p> or <hX> tags after paste
+      // Under certain circumstances Chrome + Safari create nested <p> or <hX> tags after paste
       // Inserting an invisible white space in front of it fixes the issue
       // This is too hacky and causes selection not to replace content on paste in chrome
      /* if (browser.createsNestedInvalidMarkupAfterPaste()) {
@@ -12851,7 +12851,7 @@ wysihtml5.views.View = Base.extend(
 
     dom.observe(focusBlurElement, "blur", function(event) {
       if (state !== that.getValue(false, false)) {
-        //CRUDPolicy change event if supported (all except IE8)
+        //create change event if supported (all except IE8)
         var changeevent = event;
         if(typeof Object.create == 'function') {
           changeevent = Object.create(event, { type: { value: 'change' } });

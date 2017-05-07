@@ -22,23 +22,35 @@
 
                 <div class="profile-content">
                     <div class="col-md-3" style="float: right">
-                        <h1>{{$building_info->building_name}}</h1>
-                        <br>
+                        <table>
+                            <tr>
+                                <th colspan="3" class="text-center"><h1>{{$building_info->building_name}}</h1></th>
+                            </tr>
 
-                        <span>نوع العقار: {{building_type()[$building_info->building_type]}}</span>
-                        <br>
+                            <tr>
+                                <td style="text-align: left">نوع العقار </td>
+                                <td>&nbsp;&nbsp;</td>
+                                <td style="text-align: right">{{building_type()[$building_info->building_type]}}</td>
+                            </tr>
 
-                        <span>المساحة: {{$building_info->building_area}}</span>
-                        <br>
+                            <tr>
+                                <td style="text-align: left">عدد الغرف </td>
+                                <td>&nbsp;&nbsp;</td>
+                                <td style="text-align: right">{{$building_info->rooms}}</td>
+                            </tr>
 
-                        <span>عدد الغرف: {{$building_info->rooms}}</span>
-                        <br>
+                            <tr>
+                                <td style="text-align: left">المساحة </td>
+                                <td>&nbsp;&nbsp;</td>
+                                <td style="text-align: right">{{$building_info->building_area}}</td>
+                            </tr>
 
-                        <span>نوع العملية: {{building_rent()[$building_info->building_rent]}}</span>
-
-                        <!-- Go to www.addthis.com/dashboard to customize your tools -->
-                        <div class="addthis_inline_share_toolbox" style="height: 30px">
-                        </div>
+                            <tr>
+                                <td style="text-align: left">نوع العملية </td>
+                                <td>&nbsp;&nbsp;</td>
+                                <td style="text-align: right">{{building_type()[$building_info->building_rent]}}</td>
+                            </tr>
+                        </table>
                     </div>
 
                     <div class="col-md-9">
@@ -46,12 +58,11 @@
                     </div>
                     <hr>
                     <div class="clearfix"></div>
-                    <p>
+
+                    <p style="text-align: right">
                         {{$building_info->building_large_description}}
                     </p>
                 </div>
-
-                <div class="clearfix"></div>
 
                 <div class="profile-content">
                     @include('front-end/building/share', ['allBuildings' => $same_rent])
@@ -60,9 +71,4 @@
             </div>
         </div>
     </div>
-    </div>
-@endsection
-
-@section('footer')
-    <script type="text/javascript" src="//ct5.addthis.com/js/300/addthis_widget.js#pubid=ra-58fe7ca73f354667"></script>
 @endsection

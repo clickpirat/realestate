@@ -1,23 +1,36 @@
 @if(count($allBuildings) > 0)
-    @foreach($allBuildings as $building)
-        <div class="col-sm-6 col-md-4 pull-right">
+    <div class="row">
+        @foreach($allBuildings as $building)
+            <div class="col-xs-12 col-md-4 pull-right">
             <div class="thumbnail" >
-                <img src="{{image_exist($building->image)}}" class="img-responsive">
+                <img src="{{image_exist($building->image)}}" class="img-responsive" style="width: 257px; height: 178px;">
                 <div class="caption">
                     <div class="row">
-                        <div class="text-center">
-                            <h3>{{$building->building_name}}</h3>
-                        </div>
-                        <hr>
+                        <ul class="list-unstyled" style="padding: 0">
+                            <li class="text-center"><h3 style="margin: 0">{{$building->building_name}}</h3></li>
+                        </ul>
 
-                        <span class="pull-right">المساحة: {{$building->building_area}}</span>
-                        <span class="pull-left">العملية: {{building_rent()[$building->building_rent]}}</span>
-                        <div class="clearfix"></div>
+                        <ul class="list-unstyled" style="padding: 0">
+                            <li class="pull-right" style="padding: 5px">نوع العقار </li>
 
-                        <span class="pull-right">نوع العقار: {{building_type()[$building->building_type]}}</span>
-                        <hr style="margin: 30px 0">
+                            <li class="pull-right" style="padding: 5px">{{building_type()[$building->building_type]}}</li>
+
+                            <li class="pull-left" style="padding: 5px; text-align: right; margin-left: 15px">{{$building->rooms}}</li>
+
+                            <li class="pull-left" style="padding: 5px; text-align: right; margin-left: 8px">عدد الغرف </li>
+
+                            <li class="pull-right" style="padding: 5px">المساحة </li>
+
+                            <li class="pull-right" style="padding: 5px">{{$building->building_area}}</li>
+
+                            <li class="pull-left" style="padding: 5px">{{building_type()[$building->building_rent]}}</li>
+
+                            <li class="pull-left" style="padding: 5px">نوع العملية </li>
+                        </ul>
+
+
                     </div>
-
+                    <hr>
                     <p style="margin-bottom: 50px; text-align: right">
                         {{str_limit($building->building_small_description, 50)}}
                     </p>
@@ -46,8 +59,8 @@
                 </div>
             </div>
         </div>
-    @endforeach
-
+        @endforeach
+    </div>
 @else
     <div class="alert alert-danger text-center">لا يوجد عقارات حاليا</div>
 @endif

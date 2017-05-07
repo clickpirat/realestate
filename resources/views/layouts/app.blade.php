@@ -13,13 +13,14 @@
     </title>
 
     <!-- Styles -->
-    {!! Html::style('css/bootstrap.min.css') !!}
+    {!! Html::style('css/bootstrap.css') !!}
     {!! Html::style('css/flexslider.css') !!}
     {!! Html::style('css/style.css') !!}
     {!! Html::style('css/font-awesome.min.css') !!}
+    {!! Html::style('css/product-view-style.css') !!}
 
-<!-- Sweet Alert -->
-{!! Html::style('admin/dist/css/sweetalert2.min.css') !!}
+    <!-- Sweet Alert -->
+    {!! Html::style('admin/dist/css/sweetalert2.min.css') !!}
 
     <!-- Scripts -->
     {!! Html::script('js/jquery.min.js') !!}
@@ -52,12 +53,22 @@
 <body style="direction: rtl">
     <div id="app">
         <div class="header">
-            <div class="container">
-                <a class="navbar-brand pull-right" href="{{url('/')}}"><i class="fa fa-home"></i> بيتك</a>
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header pull-right">
+                        <button type="button" class="navbar-toggle collapsed pull-left" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="{{url('/')}}"><i class="fa fa-home"></i> بيتك</a>
+                    </div>
 
-                <div class="menu pull-left"> <a class="toggleMenu" href="#"><img src="images/nav_icon.png" alt="" /> </a>
-                    <!-- Right Side Of Navbar -->
-                    <ul class="nav navbar-nav">
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="menu pull-left nav navbar-nav">
                         <li class="{{set_class(['all-buildings'], 'current')}}"><a href="{{url('all-buildings')}}">العقارات</a></li>
 
                         <li>
@@ -76,7 +87,7 @@
 
                         <li>
                             <a href="#" data-toggle="dropdown" role="button">
-                          تمليك <span class="caret"></span>
+                                تمليك <span class="caret"></span>
                             </a>
 
                             <ul class="dropdown-menu">
@@ -104,7 +115,7 @@
                                     <li>
                                         <a href="{{ route('logout') }}"
                                            onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                            document.getElementById('logout-form').submit();">
                                             الخروج
                                         </a>
 
@@ -115,10 +126,10 @@
                                 </ul>
                             </li>
                         @endif
-                    </ul>
-                    {!! Html::script('js/responsive-nav.js') !!}
-                </div>
-            </div>
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav>
         </div>
     </div>
     @include('layouts/flashMessage')

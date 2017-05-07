@@ -16,7 +16,6 @@
 @endsection
 
 @section('content')
-    {{--<div class="banner text-center" style="background: url({{image_exist(getSettings('banner_image'), '/public/banner/', '/banner/')}}) no-repeat center">--}}
     <div class="banner text-center">
         <div class="container">
             <div class="banner-info">
@@ -29,51 +28,51 @@
                     'method' => 'GET'
                 ]) !!}
                 <div class="row">
-                    <div class="col-lg-6" style="float: right">
+                    <div class="col-xs-6" style="float: right">
                         {!! Form::text(
                             'building_price_from',
                             null,
                             [
                                 'placeholder' => 'سعر العقار من',
-                                'style' => 'width: 100%; margin-bottom: 5px',
+                                'style' => 'margin-bottom: 5px',
                                 'class' => 'form-control'
                             ]
                         ) !!}
                     </div>
 
-                    <div class="col-lg-6" style="float: right">
+                    <div class="col-xs-6" style="float: right">
                         {!! Form::text(
                             'building_price_to',
                             null,
                             [
                                 'placeholder' => 'سعر العقار الي',
-                                'style' => 'width: 100%; margin-bottom: 5px',
+                                'style' => 'margin-bottom: 5px',
                                 'class' => 'form-control'
                             ]
                         ) !!}
                     </div>
 
-                    <div class="col-lg-6" style="float: right">
+                    <div class="col-xs-6" style="float: right">
                         {!! Form::select(
                             'rooms',
                             room_numbers(),
                             null,
                             [
                                 'placeholder' => 'عدد الغرف',
-                                'style' => 'width: 100%; margin-bottom: 5px',
+                                'style' => 'margin-bottom: 5px',
                                 'class' => 'form-control'
                             ]
                         ) !!}
                     </div>
 
-                    <div class="col-lg-6" style="float: right">
+                    <div class="col-xs-6" style="float: right">
                         {!! Form::select(
                             'building_type',
                             building_type(),
                             null,
                             [
                                 'placeholder' => 'نوع العقار',
-                                'style' => 'width: 100%; margin-bottom: 5px',
+                                'style' => 'margin-bottom: 5px',
                                 'class' => 'form-control'
                             ]
                         ) !!}
@@ -81,20 +80,20 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-lg-6" style="float: right">
+                    <div class="col-xs-6" style="float: right">
                         {!! Form::select(
                             'building_rent',
                             building_rent(),
                             null,
                             [
                                 'placeholder' => 'نوع العملية',
-                                'style' => 'width: 100%; margin-bottom: 5px',
+                                'style' => 'margin-bottom: 30px',
                                 'class' => 'form-control'
                             ]
                         ) !!}
                     </div>
 
-                    <div class="col-lg-6" style="float: right">
+                    <div class="col-xs-6" style="float: right">
                         {!! Form::text(
                             'building_area',
                             null,
@@ -121,43 +120,47 @@
                 <a class="banner_btn" href="{{url('user/add/building')}}" style="padding: 15px 45px">اضف عقار</a> </div>
         </div>
     </div>
-    <div class="main">
-        <ul class="cd-items cd-container">
-            @foreach(\App\Building::where('status', 1)->get() as $building)
-                <li class="cd-item">
-                    <img src="{{image_exist($building->image)}}" alt="{{$building->name}}">
-                    <a href="#0" data-id="{{$building->id}}" class="cd-trigger">نبذه سريعه</a>
-                </li> <!-- cd-item -->
-            @endforeach
-        </ul> <!-- cd-items -->
 
-        <div class="cd-quick-view">
-            <div class="cd-slider-wrapper">
-                <ul class="cd-slider">
-                    <li class="selected">
-                        <img src="img/item-1.jpg" alt="Product 1" class="image-box">
-                    </li>
-                </ul> <!-- cd-slider -->
-            </div> <!-- cd-slider-wrapper -->
+        <div class="main">
+            <h1 style="margin: 40px 0" class="text-center">اضيف مؤاخرا</h1>
+            <ul class="cd-items cd-container">
+                @foreach(\App\Building::take('8')->orderBy('id', 'desc')->where('status', 1)->get() as $building)
+                        <li class="cd-item">
+                            <img src="{{image_exist($building->image)}}" alt="{{$building->name}}" style="width: 257px; height: 178px;">
+                            <a href="#0" data-id="{{$building->id}}" class="cd-trigger" style="color: #FFF;">نبذه سريعه</a>
+                        </li> <!-- cd-item -->
 
-            <div class="cd-item-info">
-                <h2 class="title-box"></h2>
-                <p class="description-box"></p>
+                @endforeach
+            </ul> <!-- cd-items -->
 
-                <ul class="cd-item-action">
-                    <li>
-                        <a href="#0" class="add-to-cart price-box">Add to cart</a>
-                    </li>
+            <div class="cd-quick-view">
+                <div class="cd-slider-wrapper">
+                    <ul class="cd-slider">
+                        <li class="selected">
+                            <img src="img/item-1.jpg" alt="Product 1" class="image-box">
+                        </li>
+                    </ul> <!-- cd-slider -->
+                </div> <!-- cd-slider-wrapper -->
 
-                    <li>
-                        <a href="#0" class="more-box">المزيد</a>
-                    </li>
-                </ul> <!-- cd-item-action -->
-            </div> <!-- cd-item-info -->
+                <div class="cd-item-info">
+                    <h2 class="title-box"></h2>
+                    <p class="description-box"></p>
 
-            <a href="#0" class="cd-close">Close</a>
-        </div> <!-- cd-quick-view -->
-    </div>
+                    <ul class="cd-item-action">
+                        <li>
+                            <a href="#0" class="add-to-cart price-box">Add to cart</a>
+                        </li>
+
+                        <li>
+                            <a href="#0" class="more-box">المزيد</a>
+                        </li>
+                    </ul> <!-- cd-item-action -->
+                </div> <!-- cd-item-info -->
+
+                <a href="#0" class="cd-close">Close</a>
+            </div> <!-- cd-quick-view -->
+        </div>
+
 @endsection
 
 @section('footer')

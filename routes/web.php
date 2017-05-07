@@ -41,6 +41,12 @@ Route::group(['middleware' => ['web', 'admin']], function (){
     //Buildings list
     Route::RESOURCE('adminpanel/building', 'BuildingController');
 
+    //Buildings Statistics by year
+    Route::GET('adminpanel/chart', 'AdminController@Chart');
+
+    //Buildings Statistics
+    Route::POST('adminpanel/chart', 'AdminController@YearChart');
+
     //Activate building
     Route::GET('adminpanel/change-status/{id}/{status}', 'BuildingController@ActivateBuilding');
 

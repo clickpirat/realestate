@@ -17,7 +17,7 @@ function image_exist($image_name = '', $imagePath = '/public/building_images/', 
     return getSettings('no_image');
 }
 
-function uploadImage($request, $path = '/public/building_images/', $width = '400', $height = '225', $delete_file = '')
+function uploadImage($request, $path = '/public/building_images/', $width = '650', $height = '450', $delete_file = '')
 {
     if($delete_file != '')
 {
@@ -30,14 +30,14 @@ function uploadImage($request, $path = '/public/building_images/', $width = '400
     
     $request->move(base_path() . $path, $file_name);
     
-    if($width == '400' AND $height == '225')
+    if($width == '650' AND $height == '450')
 {
         $thumbnail_path = base_path() . '/public/thumbnail';
         $new_thumbnail_path = $thumbnail_path . $file_name;
 
         \Intervention\Image\Facades\Image
             ::make(base_path() . $path . '/' . $file_name)
-            ->resize('400', '225')
+            ->resize('650', '450')
             ->save($new_thumbnail_path, 100);
 
         if($delete_file != '')

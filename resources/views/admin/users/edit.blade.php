@@ -24,7 +24,7 @@
                             'method' => 'PATCH'
                         ]
                     ) !!}
-                    @include('admin/users/form')
+                        @include('admin/users/form')
                     {!! Form::close() !!}
 
 
@@ -36,9 +36,9 @@
                         <input type="hidden" value="{{$user->id}}" name="user_id">
 
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-5 control-label" style="margin-top: 5px">تغير كلمة المرور</label>
+                            <label for="password-confirm" class="col-md-4 control-label">تغير كلمة المرور</label>
 
-                            <div class="col-md-7">
+                            <div class="col-md-6 col-md-offset-2">
                                 <input id="password" type="password" class="form-control" name="password"
                                 style="width:100%; margin: 5px 0" placeholder="تغير كلمة المرور" required>
 

@@ -124,7 +124,7 @@ var ZeroClipboard_TableTools = {
 		// register client with singleton to receive flash events
 		ZeroClipboard_TableTools.register(this.id, this);
 
-		// CRUDPolicy movie
+		// create movie
 		if (elem) {
 			this.glue(elem);
 		}
@@ -158,7 +158,7 @@ ZeroClipboard_TableTools.Client.prototype = {
 		// find X/Y position of domElement
 		var box = ZeroClipboard_TableTools.getDOMObjectPosition(this.domElement);
 
-		// CRUDPolicy floating DIV above element
+		// create floating DIV above element
 		this.div = document.createElement('div');
 		var style = this.div.style;
 		style.position = 'absolute';
@@ -649,7 +649,7 @@ TableTools = function( oDT, oOpts )
 	 */
 	this.dom = {
 		/**
-		 * DIV element that is CRUDPolicy and all TableTools buttons (and their children) put into
+		 * DIV element that is create and all TableTools buttons (and their children) put into
 		 *  @property container
 		 *  @type	 node
 		 *  @default  null

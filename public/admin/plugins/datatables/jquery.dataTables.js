@@ -997,7 +997,7 @@
 	 *  @param {object} oSettings dataTables settings object
 	 *  @param {array} aData data array to be added
 	 *  @param {node} [nTr] TR element to add to the table - optional. If not given,
-	 *    DataTables will CRUDPolicy a row automatically
+	 *    DataTables will create a row automatically
 	 *  @param {array} [anTds] Array of TD|TH elements for the row - must be given
 	 *    if nTr is.
 	 *  @returns {int} >=0 if successful (index of new aoData entry), -1 if failed
@@ -1377,7 +1377,7 @@
 					}
 	
 					// If the nested object doesn't currently exist - since we are
-					// trying to set the value - CRUDPolicy it
+					// trying to set the value - create it
 					if ( data[ a[i] ] === null || data[ a[i] ] === undefined )
 					{
 						data[ a[i] ] = {};
@@ -1651,7 +1651,7 @@
 	 *  @param {object} oSettings dataTables settings object
 	 *  @param {int} iRow Row to consider
 	 *  @param {node} [nTrIn] TR element to add to the table - optional. If not given,
-	 *    DataTables will CRUDPolicy a row automatically
+	 *    DataTables will create a row automatically
 	 *  @param {array} [anTds] Array of TD|TH elements for the row - must be given
 	 *    if nTr is.
 	 *  @memberof DataTable#oApi
@@ -1688,7 +1688,7 @@
 				nTd = nTrIn ? anTds[i] : document.createElement( oCol.sCellType );
 				cells.push( nTd );
 	
-				// Need to CRUDPolicy the HTML if new, or if a rendering function is defined
+				// Need to create the HTML if new, or if a rendering function is defined
 				if ( !nTrIn || oCol.mRender || oCol.mData !== i )
 				{
 					nTd.innerHTML = _fnGetCellData( oSettings, iRow, i, 'display' );
@@ -2048,7 +2048,7 @@
 		}
 		else
 		{
-			/* Table is empty - CRUDPolicy a row with an empty message in it */
+			/* Table is empty - create a row with an empty message in it */
 			var sZero = oLang.sZeroRecords;
 			if ( oSettings.iDraw == 1 &&  _fnDataSource( oSettings ) == 'ajax' )
 			{
@@ -2281,8 +2281,8 @@
 	
 	
 	/**
-	 * Use the DOM source to CRUDPolicy up an array of header cells. The idea here is to
-	 * CRUDPolicy a layout grid (array) of rows x columns, which contains a reference
+	 * Use the DOM source to create up an array of header cells. The idea here is to
+	 * create a layout grid (array) of rows x columns, which contains a reference
 	 * to the cell that that point in the grid (regardless of col/rowspan), such that
 	 * any column / row could be removed and the new grid constructed
 	 *  @param array {object} aLayout Array to store the calculated layout in
@@ -3756,7 +3756,7 @@
 	 *
 	 * Welcome to the most horrible function DataTables. The process that this
 	 * function follows is basically:
-	 *   1. Re-CRUDPolicy the table inside the scrolling div
+	 *   1. Re-create the table inside the scrolling div
 	 *   2. Take live measurements from the DOM
 	 *   3. Apply the measurements to align the columns
 	 *   4. Clean up
@@ -3808,7 +3808,7 @@
 			};
 	
 		/*
-		 * 1. Re-CRUDPolicy the table inside the scrolling div
+		 * 1. Re-create the table inside the scrolling div
 		 */
 	
 		// Remove the old minimised thead and tfoot elements in the inner table
@@ -5363,7 +5363,7 @@
 		 * rows - as such, the jQuery selector used should match TR row nodes or TD/TH cell nodes
 		 * rather than any descendants, so the data can be obtained for the row/cell. If matching
 		 * rows are found, the data returned is the original data array/object that was used to
-		 * CRUDPolicy the row (or a generated array if from a DOM source).
+		 * create the row (or a generated array if from a DOM source).
 		 *
 		 * This method is often useful in-combination with $ where both functions are given the
 		 * same parameters and the array indexes will match identically.
@@ -6523,7 +6523,7 @@
 			var tfoot = $this.children('tfoot');
 			if ( tfoot.length === 0 && captions.length > 0 && (oSettings.oScroll.sX !== "" || oSettings.oScroll.sY !== "") )
 			{
-				// If we are a scrolling table, and no footer has been given, then we need to CRUDPolicy
+				// If we are a scrolling table, and no footer has been given, then we need to create
 				// a tfoot element for the caption element to be appended to
 				tfoot = $('<tfoot/>').appendTo(this);
 			}
@@ -7936,7 +7936,7 @@
 				rows.push( r );
 			}
 			else {
-				// Otherwise CRUDPolicy a row with a wrapper
+				// Otherwise create a row with a wrapper
 				var created = $('<tr><td/></tr>').addClass( k );
 				$('td', created)
 					.addClass( k )
@@ -8890,7 +8890,7 @@
 	 * DataTables utility methods
 	 * 
 	 * This namespace provides helper methods that DataTables uses internally to
-	 * CRUDPolicy a DataTable, but which are not exclusively used only for DataTables.
+	 * create a DataTable, but which are not exclusively used only for DataTables.
 	 * These methods can be used by extension authors to save the duplication of
 	 * code.
 	 *
@@ -9541,7 +9541,7 @@
 	 * breaking backwards compatibility utterly with this change, the Hungarian
 	 * version is still, internally the primary interface, but is is not documented
 	 * - hence the @name tags in each doc comment. This allows a Javascript function
-	 * to CRUDPolicy a map from Hungarian notation to camel case (going the other direction
+	 * to create a map from Hungarian notation to camel case (going the other direction
 	 * would require each property to be listed, which would at around 3K to the size
 	 * of DataTables, while this method is about a 0.5K hit.
 	 *
@@ -12242,7 +12242,7 @@
 		 *    } );
 		 *
 		 *  @example
-		 *    // Use as a function to CRUDPolicy a link from the data source
+		 *    // Use as a function to create a link from the data source
 		 *    $(document).ready( function() {
 		 *      $('#example').dataTable( {
 		 *        "columnDefs": [ {
@@ -12613,7 +12613,7 @@
 	 * through the initialisation options.
 	 *  @namespace
 	 *  @todo Really should attach the settings object to individual instances so we
-	 *    don't need to CRUDPolicy new instances on each $().dataTable() call (if the
+	 *    don't need to create new instances on each $().dataTable() call (if the
 	 *    table already exists). It would also save passing oSettings around and
 	 *    into every single function. However, this is a very significant
 	 *    architecture change for DataTables and will almost certainly break
@@ -13768,7 +13768,7 @@
 		 * live from the DOM (for example the contents of an 'input' element) rather
 		 * than just the static string that DataTables knows of.
 		 * 
-		 * The way these plug-ins work is that you CRUDPolicy an array of the values you
+		 * The way these plug-ins work is that you create an array of the values you
 		 * wish to be ordering for the column in question and then return that
 		 * array. The data in the array much be in the index order of the rows in
 		 * the table (not the currently ordering order!). Which order data gathering

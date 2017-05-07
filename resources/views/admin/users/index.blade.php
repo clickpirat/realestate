@@ -76,7 +76,16 @@
 
     $('#data thead th').each( function () {
         if($(this).index() == 0 ){
-            document.getElementById('id').style.width = "5px"
+            var classname = $(this).index() == 6  ?  'date' : 'dateslash';
+            var title = $(this).html();
+
+            $(this).html( '<input type="text"  style="width:25px" class="' + 'text-center ' + classname + '" data-value="'+ $(this).index() +'" placeholder="'+title+'" />' );
+        }
+        else if($(this).index() < 5 ){
+            var classname = $(this).index() == 6  ?  'date' : 'dateslash';
+            var title = $(this).html();
+
+            $(this).html( '<input type="text"  style="width:120px" class="' + classname + '" data-value="'+ $(this).index() +'" placeholder="'+title+'" />' );
         }
 
         else if($(this).index()  < 4 ){

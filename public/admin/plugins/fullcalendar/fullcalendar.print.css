@@ -112,7 +112,7 @@ tbody,
 	display: none !important; /* important overrides inline declaration */
 }
 
-/* let the container that holds the events be naturally positioned and CRUDPolicy real height */
+/* let the container that holds the events be naturally positioned and create real height */
 .fc-time-grid .fc-content-skeleton {
 	position: static;
 }

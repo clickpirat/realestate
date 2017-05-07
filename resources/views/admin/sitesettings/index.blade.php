@@ -48,7 +48,10 @@
                                         {{ Form::text(
                                             $setting->name_setting,
                                             $setting->value,
-                                            ['class' => 'form-control']
+                                            [
+                                                'class' => 'form-control',
+                                                'style' => 'width: 100%; margin-bottom: 5px',
+                                            ]
                                         ) }}
 
                                     @elseif($setting->type == 2)
@@ -57,13 +60,19 @@
                                         @endif
                                             {{ Form::file(
                                                 $setting->value,
-                                                ['class' => 'form-control']
+                                                [
+                                                'class' => 'form-control',
+                                                'style' => 'width: 100%; margin-bottom: 5px',
+                                            ]
                                             ) }}
                                     @else
                                         {{ Form::textarea(
                                             $setting->name_setting,
                                             $setting->value,
-                                            ['class' => 'form-control']
+                                            [
+                                                'class' => 'form-control',
+                                                'style' => 'width: 100%; margin-bottom: 5px',
+                                            ]
                                         ) }}
                                     @endif
 

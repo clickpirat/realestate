@@ -91,7 +91,7 @@
                     null,
                     [
                         'placeholder' => 'سعر العقار من',
-                        'style' => 'width: 50%'
+                        'style' => 'width: 100%'
                     ]
                 ) !!}
             </div>
@@ -102,7 +102,7 @@
                     null,
                     [
                         'placeholder' => 'سعر العقار الي',
-                        'style' => 'width: 50%'
+                        'style' => 'width: 100%'
                     ]
                 ) !!}
             </div>

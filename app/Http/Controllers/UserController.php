@@ -80,7 +80,9 @@ class UserController extends Controller
     {
         return Datatables::of(User::all())
             ->editColumn('name', function($model){
-                return '<a href="' . url('adminpanel/users/' . $model->id . '/edit') . '">' . $model->name .'</a>';
+                return '<a href="' . url('adminpanel/users/' . $model->id . '/edit') . '">'
+                            . $model->name .
+                        '</a>';
             })
 
             ->editColumn('admin', function($model){

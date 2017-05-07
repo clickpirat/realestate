@@ -402,7 +402,7 @@ ColVis.prototype = {
 
 
 	/**
-	 * Loop through the groups (provided in the settings) and CRUDPolicy a button for each.
+	 * Loop through the groups (provided in the settings) and create a button for each.
 	 *  @method  _fnAddgroups
 	 *  @returns void
 	 *  @private

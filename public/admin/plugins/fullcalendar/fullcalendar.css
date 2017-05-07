@@ -438,7 +438,7 @@ temporary rendered events).
 .fc-scroller > * { /* we expect an immediate inner element */
 	position: relative; /* re-scope all positions */
 	width: 100%; /* hack to force re-sizing this inner element when scrollbars appear/disappear */
-	overflow: hidden; /* don't let negative margins or absolute positioning CRUDPolicy further scroll */
+	overflow: hidden; /* don't let negative margins or absolute positioning create further scroll */
 }
 
 

@@ -207,51 +207,6 @@
 </div>
 @endif
 
-<div class="form-group{{ $errors->has('building_longitude') ? ' has-error' : '' }}">
-    <label for="building_longitude" class="col-md-4 control-label">خط الطول</label>
-
-    <div class="col-md-6">
-        {{ Form::text(
-            'building_longitude',
-            null,
-            [
-                'placeholder' => 'خظ الطول',
-                'style' => 'width: 100%; margin-bottom: 5px',
-                'class' => 'form-control'
-            ]
-        ) }}
-
-        @if ($errors->has('building_longitude'))
-            <span class="help-block">
-                <strong>{{ $errors->first('building_longitude') }}</strong>
-            </span>
-        @endif
-    </div>
-</div>
-
-<div class="form-group{{ $errors->has('building_latitude') ? ' has-error' : '' }}">
-    <label for="building_latitude" class="col-md-4 control-label">خط العرض</label>
-
-    <div class="col-md-6">
-        {{ Form::text(
-            'building_latitude',
-            null,
-            [
-                'placeholder' => 'خط العرض',
-                'style' => 'width: 100%; margin-bottom: 5px',
-                'class' => 'form-control'
-            ]
-        ) }}
-
-        @if ($errors->has('building_latitude'))
-            <span class="help-block">
-                <strong>{{ $errors->first('building_latitude') }}</strong>
-            </span>
-        @endif
-    </div>
-</div>
-
-
 <div class="form-group{{ $errors->has('building_large_description') ? ' has-error' : '' }}">
     <label for="building_large_description" class="col-md-4 control-label">وصف مفصل للعقار</label>
 

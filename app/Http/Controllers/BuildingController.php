@@ -45,13 +45,13 @@ class BuildingController extends Controller
             'building_type'  => $request->building_type,
             'building_small_description' => $request->building_small_description,
             'building_meta'  => $request->building_meta,
-            'building_longitude' => $request->building_longitude,
-            'building_latitude'  => $request->building_latitude,
             'building_large_description' => $request->building_large_description,
             'user_id' => Auth::user()->id,
             'rooms'  => $request->rooms,
             'status' => $request->status,
             'image' => $image,
+            'month' => date('m'),
+            'year' => date('Y'),
         ]);
 
         return redirect('/adminpanel/building')->withFlashMessage('تم إضافة بيانات العقار بنجاح');
@@ -261,11 +261,11 @@ class BuildingController extends Controller
             'building_type'  => $request->building_type,
             'building_large_description' => strip_tags(str_limit($request->building_large_description, 160)),
             'building_meta'  => $request->building_meta,
-            'building_longitude' => $request->building_longitude,
-            'building_latitude'  => $request->building_latitude,
             'user_id' => $user,
             'rooms'  => $request->rooms,
             'image' => $image,
+            'month' => date('m'),
+            'year' => date('Y'),
         ]);
 
         return view('user-building/done');
